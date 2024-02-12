@@ -1,3 +1,5 @@
+package info.chgk.london;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 

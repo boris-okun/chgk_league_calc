@@ -4,7 +4,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.2'
     id "org.openapi.generator" version "6.5.0"
 }
-group = 'com.boris-okun'
+group = 'com.chgk.london'
 version = '1.0.0'
 
 java {

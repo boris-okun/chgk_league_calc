@@ -1,11 +1,15 @@
+package info.chgk.london;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MicroMatchRunner {
@@ -19,10 +23,9 @@ public class MicroMatchRunner {
         ArrayList<Integer> ids = new ArrayList<>();
         Gson gson = new Gson();
 
-        // Assuming config.path is the base path where JSON files are located
-        String filePath = System.getenv("config.path") + "/" + fileName;
+        ClassPathResource resource = new ClassPathResource(fileName);
 
-        try (FileReader reader = new FileReader(filePath)) {
+        try (FileReader reader = new FileReader(resource.getFile())) {
             JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
 
             for (JsonElement element : jsonArray) {
